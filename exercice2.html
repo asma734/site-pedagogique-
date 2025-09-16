@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>API et AJAX - Cours JS</title>
+  <style>
+    body {
+      background-color: rgb(255, 227, 196);
+      font-family: Arial, sans-serif;
+      margin: 5px;
+      line-height: 1.5;
+      transform: scale(0.96);
+      transform-origin: center;
+    }
+
+    h1 {
+      color: rgb(255, 102, 0);
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    h2, h3, h4 {
+      font-family: 'Lobster', cursive;
+      margin: 10px 0;
+    }
+
+    img {
+      display: block;
+      margin: 10px auto;
+      border-radius: 10px;
+    }
+
+    pre {
+      background-color: #ad7772;
+      border-radius: 20px;
+      padding: 10px;
+      border-left: 5px solid #8f1f1f;
+      overflow-x: auto;
+    }
+
+    ul {
+      background-color: #f2c9b8;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    li {
+      margin-bottom: 15px;
+    }
+
+    code {
+      background-color: #fedbcf;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: "Courier New", monospace;
+    }
+
+    a {
+      color: #24ab36;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      background-color: #ffa64d;
+      color: rgb(0, 0, 0);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff8800;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #999;
+      margin: 30px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background-color: #fff8e1;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    thead {
+      background-color: #ffc061;
+    }
+
+    .commentaire {
+      color: green;
+      font-family: "Courier New", monospace;
+      font-style: italic;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+<h1>💡 Cours complet sur les API et AJAX</h1>
+
+<section style="background-color: #eef6ff; padding: 20px; border-radius: 10px; margin-top: 30px;">
+  <h2>🔌 Qu’est-ce qu’une API ?</h2>
+  <img src="api.ex2.png" width="700" alt="API diagram">
+
+  <p>Une <strong>API</strong> (Application Programming Interface) est une <strong>interface de communication</strong> entre deux programmes. Elle permet à une application web (comme ton site HTML/JS) de <strong>parler avec un serveur</strong> à distance pour obtenir ou envoyer des données.</p>
+
+  <h3>🧠 Exemple concret :</h3>
+  <p>Ton site veut connaître la météo à Tunis → il envoie une requête à une <strong>API météo</strong> qui renvoie une réponse.</p>
+
+  <pre><code>// Requête HTTP
+GET https://api.weatherapi.com/v1/current.json?q=Tunis
+
+// Réponse JSON
+{
+  "location": {
+    "name": "Tunis",
+    "country": "Tunisia"
+  },
+  "current": {
+    "temp_c": 33.5,
+    "condition": {
+      "text": "Ensoleillé"
+    }
+  }
+}</code></pre>
+
+  <h3>🎯 Pourquoi utiliser une API ?</h3>
+  <ul>
+    <li>📊 Pour obtenir des données dynamiques (météo, cours boursiers, actualités...)</li>
+    <li>📷 Pour intégrer des services (YouTube, Google Maps, etc.)</li>
+    <li>⚙️ Pour créer des applications modernes et interactives</li>
+  </ul>
+
+  <h3>🎥 Vidéo explicative :</h3>
+  <p><a href="https://www.youtube.com/watch?v=Px1nU6W5GfY" target="_blank">"C'est quoi une API ?" – par Grafikart (6 min)</a></p>
+</section>
+
+<section style="background-color:#f0f9ff; border-radius: 10px; padding: 20px; margin-top: 30px;">
+  <h2>📡 Partie 2 – Comment JavaScript utilise une API ?</h2>
+
+  <h3>🔍 Étapes simples :</h3>
+  <ol>
+    <li>Tu utilises <code>fetch(URL)</code> pour envoyer une requête.</li>
+    <li>Tu reçois une réponse au format <code>JSON</code>.</li>
+    <li>Tu affiches les données dans ta page avec JavaScript.</li>
+  </ol>
+
+  <h3>💻 Les principales instructions utilisées :</h3>
+  <ul>
+    <li><code>fetch(...)</code> : Fonction JS pour <strong>envoyer une requête HTTP</strong> à une API.<br><em>« Hé API, donne-moi une blague ! »</em></li>
+    <li><code>https://official-joke-api.appspot.com/random_joke</code> : L'<strong>URL</strong> de l'API, qui renvoie une blague au format JSON.</li>
+    <li><code>.then(response => response.json())</code> : On transforme la réponse reçue en <strong>objet lisible en JS</strong>.</li>
+    <li><code>.then(data => { ... })</code> : On <strong>utilise les données reçues</strong> pour les afficher dans la page.</li>
+  </ul>
+
+  <h3>📦 Ce que fait l’API (et ce qu’elle ne fait pas)</h3>
+  <table>
+    <tr><th>Action</th><th>Fait par l’API ?</th><th>Détail</th></tr>
+    <tr><td>Fournit une blague</td><td>✅ Oui</td><td>Sa fonction</td></tr>
+    <tr><td>Affiche la blague</td><td>❌ Non</td><td>Ton JS le fait</td></tr>
+    <tr><td>Envoie une réponse JSON</td><td>✅ Oui</td><td>Format standard</td></tr>
+    <tr><td>Fait la requête</td><td>❌ Non</td><td>C’est ton code</td></tr>
+  </table>
+
+  <h3>🎁 Exemple pratique avec une API de blague :</h3>
+  <button onclick="obtenirBlague()">Obtenir une blague 🤣</button>
+  <p id="blagueAPI" style="font-size: 1.2em;"></p>
+
+  <script>
+    function obtenirBlague() {
+      fetch("https://official-joke-api.appspot.com/random_joke")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("blagueAPI").innerHTML =
+            "<strong>" + data.setup + "</strong><br>" + data.punchline;
+        })
+        .catch(error => {
+          document.getElementById("blagueAPI").innerText = "Erreur : " + error;
+        });
+    }
+  </script>
+
+  <h3>📌 Résumé</h3>
+  <ul>
+    <li>API = service distant</li>
+    <li>fetch(URL) = envoie une requête</li>
+    <li>JSON = réponse formatée</li>
+    <li>JS = affiche les données</li>
+  </ul>
+</section>
+
+<!-- NOUVELLE SECTION AJOUTÉE -->
+
+<section style="background-color:#ffffff; border-radius: 10px; padding: 20px; margin-top: 30px;">
+  <h2>❓ Peut-on utiliser n’importe quelle API ?</h2>
+  <p>La réponse est <strong>non</strong>, on ne peut pas utiliser n’importe quelle API sans conditions. Voici les critères essentiels :</p>
+  <ul>
+    <li><strong>Accès autorisé :</strong> l’API doit être publique ou tu dois avoir une clé d’accès (token) fournie par le fournisseur.</li>
+    <li><strong>Compatibilité technique :</strong> l’API doit être compatible avec ton environnement (langage, protocole HTTP/HTTPS, format des données comme JSON).</li>
+    <li><strong>Respect des limites :</strong> respecter les quotas de requêtes imposés par l’API (nombre de requêtes par minute/jour).</li>
+    <li><strong>Conditions d’utilisation :</strong> respecter les licences, les règles d’usage et la protection des données personnelles.</li>
+    <li><strong>Sécurité :</strong> éviter les APIs non fiables qui peuvent présenter des risques pour la sécurité et la confidentialité.</li>
+  </ul>
+  <p><em>En résumé :</em> on peut utiliser une API seulement si on a la permission, qu’elle est techniquement accessible et qu’on respecte les règles imposées.</p>
+
+  <h2>❗ À quoi sert une API ?</h2>
+  <p>Une API (Application Programming Interface) est une interface qui permet à deux logiciels de communiquer. Grâce à une API, tu peux :</p>
+  <ul>
+    <li><strong>Récupérer des données :</strong> par exemple, obtenir la météo sans capteurs physiques.</li>
+    <li><strong>Envoyer des données :</strong> par exemple, envoyer un message via un service externe.</li>
+    <li><strong>Contrôler un service :</strong> par exemple, allumer une lumière à distance avec une API domotique.</li>
+    <li><strong>Automatiser des tâches :</strong> comme récupérer automatiquement tes opérations bancaires.</li>
+    <li><strong>Intégrer des fonctionnalités tierces :</strong> comme un système de paiement ou une carte interactive.</li>
+  </ul>
+  <p><em>En résumé :</em> une API te donne accès à des services externes pour enrichir ou automatiser tes applications.</p>
+  
+  <section style="background-color:#fff9e6; border-radius: 10px; padding: 20px; margin-top: 30px;">
+  <h2>⚙️ Étapes détaillées du fonctionnement de <code>fetch()</code></h2>
+
+  <h3>Étape 1 : Envoyer la requête HTTP à l’URL</h3>
+  <pre><code>fetch('https://api.example.com/data')</code></pre>
+  <p>Ici, <code>fetch()</code> lance une requête <strong>GET</strong> vers l’URL spécifiée.</p>
+  <p>C’est un appel <em>asynchrone</em>, ça démarre la demande vers le serveur.</p>
+
+  <h3>Étape 2 : Recevoir la réponse sous forme d’un objet <code>Response</code></h3>
+  <pre><code>fetch('https://api.example.com/data')
+  .then(response =&gt; {
+    // Ici, on reçoit l'objet Response
+    console.log(response);
+  });</code></pre>
+  <p>Le <code>.then()</code> permet d’attendre que la requête soit terminée et qu’on ait reçu la réponse.</p>
+  <p><code>response</code> contient les métadonnées et les données brutes.</p>
+
+  <h3>Étape 3 : Vérifier si la réponse est correcte (statut HTTP)</h3>
+  <pre><code>fetch('https://api.example.com/data')
+  .then(response =&gt; {
+    if (!response.ok) {  // response.ok est true si statut HTTP 200-299
+      throw new Error('Erreur HTTP : ' + response.status);
+    }
+    return response.json(); // On passe à l’étape suivante pour lire les données
+  })</code></pre>
+  <p>On vérifie si la requête a réussi (code 2xx).</p>
+  <p>Sinon, on lance une erreur pour la gérer.</p>
+
+  <h3>Étape 4 : Extraire les données JSON de la réponse</h3>
+  <pre><code>fetch('https://api.example.com/data')
+  .then(response =&gt; {
+    if (!response.ok) {
+      throw new Error('Erreur HTTP : ' + response.status);
+    }
+    return response.json(); // transforme la réponse en objet JS
+  })
+  .then(data =&gt; {
+    console.log(data); // ici, on a les données JSON prêtes à être utilisées
+  });</code></pre>
+  <p><code>response.json()</code> lit le corps de la réponse et convertit le JSON en objet JS.</p>
+
+  <h3>Étape 5 : Utiliser les données reçues dans le programme</h3>
+  <pre><code>fetch('https://api.example.com/data')
+  .then(response =&gt; {
+    if (!response.ok) {
+      throw new Error('Erreur HTTP : ' + response.status);
+    }
+    return response.json();
+  })
+  .then(data =&gt; {
+    // Par exemple, afficher les données dans un élément HTML
+    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+  });</code></pre>
+  <p>On affiche ou traite les données dans la page.</p>
+
+  <h3>Étape 6 : Gérer les erreurs éventuelles</h3>
+  <pre><code>fetch('https://api.example.com/data')
+  .then(response =&gt; {
+    if (!response.ok) {
+      throw new Error('Erreur HTTP : ' + response.status);
+    }
+    return response.json();
+  })
+  .then(data =&gt; {
+    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+  })
+  .catch(error =&gt; {
+    console.error('Erreur attrapée :', error);
+    document.getElementById('result').innerText = 'Erreur : ' + error.message;
+  });</code></pre>
+  <p><code>.catch()</code> permet de capturer les erreurs (problème réseau, serveur, JSON invalide, etc.) et d’afficher un message adapté.</p>
+
+  <h3>Résumé complet du code avec toutes les étapes</h3>
+  <pre><code>fetch('https://api.example.com/data') // 1. Envoyer requête HTTP
+  .then(response =&gt; {                  // 2. Recevoir la réponse
+    if (!response.ok) {                  // 3. Vérifier le statut HTTP
+      throw new Error('Erreur HTTP : ' + response.status);
+    }
+    return response.json();              // 4. Extraire les données JSON
+  })
+  .then(data =&gt; {                     // 5. Utiliser les données
+    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+  })
+  .catch(error =&gt; {                   // 6. Gérer les erreurs
+    console.error('Erreur attrapée :', error);
+    document.getElementById('result').innerText = 'Erreur : ' + error.message;
+  });</code></pre>
+</section>
+
+<section style="background-color:#fff1df; border-radius: 10px; padding: 20px; margin-top: 30px;">
+  <h2>🔄 Conversion entre JSON et JavaScript</h2>
+
+  <p>Une API envoie souvent les données sous forme de <strong>texte JSON brut</strong>. Pour pouvoir les manipuler en JavaScript, on doit <strong>les convertir</strong>.</p>
+
+  <h3>🧠 JSON → JavaScript (lecture d'une réponse)</h3>
+  <pre><code>
+let json = '{"nom": "Ali", "age": 22}';
+let obj = JSON.parse(json); // Résultat : un objet JS
+console.log(obj.nom); // Affiche : Ali
+  </code></pre>
+  <p>✔️ <code>JSON.parse()</code> transforme une <strong>chaîne JSON</strong> en <strong>objet JavaScript</strong>.</p>
+
+  <h3>📤 JavaScript → JSON (préparation à l’envoi ou affichage)</h3>
+  <pre><code>
+let obj = { nom: "Ali", age: 22 };
+let json = JSON.stringify(obj); // Résultat : '{"nom":"Ali","age":22}'
+  </code></pre>
+  <p>✔️ <code>JSON.stringify()</code> transforme un <strong>objet JavaScript</strong> en <strong>chaîne JSON</strong>.</p>
+
+  <h3>✨ Et pour bien afficher dans une page ?</h3>
+  <pre><code>
+let obj = { nom: "Ali", age: 22 };
+document.getElementById("zoneTexte").innerText = JSON.stringify(obj, null, 2);
+  </code></pre>
+  <p>
+    🔍 L'option <code>null, 2</code> ajoute des <strong>espaces et des retours à la ligne</strong> pour rendre le JSON lisible.
+  </p>
+
+  <h3>⚠️ Pourquoi c’est utile dans <code>fetch()</code> ?</h3>
+  <ul>
+    <li>✅ Les données de l’API sont au format JSON (brut, compact)</li>
+    <li>✅ On les transforme avec <code>response.json()</code> → objet JS</li>
+    <li>✅ Pour les <strong>afficher proprement</strong> dans la page, on les retransforme avec <code>JSON.stringify(..., 2)</code></li>
+  </ul>
+
+  <h3>🔁 Exemple de chaîne JSON compacte vs lisible</h3>
+  <table>
+    <thead>
+      <tr><th>Format</th><th>Texte JSON</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Minifié (compact)</td>
+        <td><code>{"nom":"Ali","age":22}</code></td>
+      </tr>
+      <tr>
+        <td>Lisible (avec indentation)</td>
+        <td>
+<pre style="margin: 0; background-color: #fff6ca;">
+{
+  "nom": "Ali",
+  "age": 22
+}
+</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+</section>
+
+
+
+<p><a href="exercice1.html">⬅️ Retour à la première partie</a></p>
+
+</body>
+</html>
