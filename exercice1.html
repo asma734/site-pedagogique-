@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cours HTML et CSS - Débutant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <style>
+body {
+  background-color: rgb(255, 222, 187);
+  font-family: Arial, sans-serif;
+  margin: 5px; /* Réduit la marge de toute la page */
+  line-height: 1.4; /* Réduit l'espace entre les lignes */
+  transform: scale(0.95); /* Réduction légère à 95% */
+  transform-origin:center;
+}
+
+
+
+h1 {
+  color: rgb(255, 102, 0);
+  text-align: center;
+  margin: 10px 0; /* Moins d'espace en haut et en bas */
+}
+
+h2, h3 {
+  font-family: 'Lobster', cursive;
+  margin: 10px 0; /* Réduit les marges des sous-titres */
+}
+
+h4 {
+  margin: 10px 0; /* Pour h4 aussi */
+}
+
+img {
+  display: block;
+  margin: 10px auto; /* Moins de marge autour de l'image */
+  border-radius: 10px;
+}
+
+
+    pre {
+      background-color: #f0eeee;
+      border-radius: 20px;
+      padding: 10px;
+      border-left: 5px solid #ccc;
+      overflow-x: auto;
+    }
+
+    ul {
+      background-color: #fff5e6;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    li {
+      margin-bottom: 15px;
+    }
+
+    code {
+      background-color: #c4cf9e;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: "Courier New", monospace;
+    }
+
+    a {
+      color: #821d1d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      background-color: #ffa64d;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff8800;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #999;
+      margin: 30px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background-color: #fff8e1;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    thead {
+      background-color: #ffd699;
+    }
+
+   
+  .commentaire {
+    color: green;
+    font-family: "Courier New", monospace;
+    font-style: italic;
+  }
+
+
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://th.bing.com/th/id/OIP.1u2p917cvlyP6SuHcq3t0QHaEc?w=251&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="an image" width="200" height="142"/>
+
+  <h1>🧠 Cours HTML - Niveau Débutant</h1>
+
+  <div>
+    <h2>1. Qu'est-ce que HTML ?</h2>
+    <p>
+      <strong>HTML</strong> (HyperText Markup Language) est le langage de base des pages web.
+      Il permet de structurer les informations à afficher, comme des <span style="color:blue">titres</span>,
+      des paragraphes, des images ou des liens.
+    </p>
+  </div>
+
+  <hr>
+
+  <div>
+    <h2>2. Structure de base</h2>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    Contenu
+  &lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+  </div>
+
+  <hr>
+<div>
+  <h2>3. Liste des balises HTML utiles</h2>
+
+  <ul>
+
+    <!-- 🧱 STRUCTURE DU DOCUMENT -->
+    <h3>🧱 Structure de base d'une page HTML</h3>
+    <!-- Ces balises sont les fondations d'une page HTML -->
+    <li><strong>&lt;!DOCTYPE&gt;</strong> : Déclare le type de document HTML (HTML5)</li>
+    <li><strong>&lt;html&gt;</strong> : Conteneur principal de toute la page</li>
+    <li><strong>&lt;head&gt;</strong> : Contient les informations invisibles (titre, encodage…)</li>
+    <li><strong>&lt;meta&gt;</strong> : Déclare l'encodage (ex : UTF-8)</li>
+    <li><strong>&lt;title&gt;</strong> : Titre affiché dans l’onglet du navigateur</li>
+    <li><strong>&lt;body&gt;</strong> : Contenu visible affiché dans la page</li>
+
+    <!-- 🧩 STRUCTURATION DU CONTENU -->
+    <h3>🧩 Balises de structuration du contenu</h3>
+    <li><strong>&lt;section&gt;</strong> : Regroupe une partie logique du contenu<br>
+      <em>Exemple :</em><br>
+      <code>
+        &lt;section&gt;<br>
+          &lt;h2&gt;Mes projets&lt;/h2&gt;<br>
+          &lt;p&gt;Voici mes projets HTML/CSS.&lt;/p&gt;<br>
+        &lt;/section&gt;
+      </code>
+    </li>
+    <li><strong>&lt;div&gt;</strong> : Conteneur neutre pour organiser des blocs</li>
+    <li><strong>&lt;span&gt;</strong> : Conteneur en ligne (inline), utile pour appliquer un style</li>
+
+    <!-- ✏️ TEXTE ET TITRES -->
+    <h3>✏️ Balises de texte et titres</h3>
+    <li><strong>&lt;h1&gt;, &lt;h2&gt;</strong> : Titres principaux et secondaires</li>
+    <li><strong>&lt;p&gt;</strong> : Paragraphe de texte</li>
+    <li><strong>&lt;strong&gt;</strong> : Texte important (gras, sémantique)</li>
+    <li><strong>&lt;em&gt;</strong> : Texte mis en valeur (italique, sémantique)</li>
+    <li><strong>&lt;br&gt;</strong> : Saut de ligne</li>
+    <li><strong>&lt;hr&gt;</strong> : Ligne horizontale</li>
+    <li><strong>&lt;pre&gt;</strong> : Texte préformaté<br>
+      <em>Exemple :</em><br>
+      <code>
+        &lt;pre&gt;<br>
+        Ligne 1<br>
+          Ligne 2 avec indentation<br>
+        Ligne 3<br>
+        &lt;/pre&gt;
+      </code>
+    </li>
+
+    <!-- 🖼️ IMAGES ET MÉDIA -->
+    <h3>🖼️ Balises d’images et médias</h3>
+    <li><strong>&lt;img&gt;</strong> : Affiche une image</li>
+    <li><strong>&lt;figure&gt; &amp; &lt;figcaption&gt;</strong> : Image + légende<br>
+      <em>Exemple :</em><br>
+      <code>
+        &lt;figure&gt;<br>
+          &lt;img src="chat.jpg" alt="Un chat"&gt;<br>
+          &lt;figcaption&gt;Mon chat Simba&lt;/figcaption&gt;<br>
+        &lt;/figure&gt;
+      </code>
+    </li>
+    <li><strong>&lt;map&gt; et &lt;area&gt;</strong> : Zones cliquables sur une image<br>
+      <em>Exemple :</em><br>
+      <code>
+        &lt;img src="workplace.jpg" usemap="#workmap"&gt;<br>
+        &lt;map name="workmap"&gt;<br>
+          &lt;area shape="rect" coords="34,44,270,350" href="computer.htm"&gt;<br>
+          &lt;area shape="rect" coords="290,172,333,250" href="phone.htm"&gt;<br>
+          &lt;area shape="circle" coords="337,300,44" href="coffee.htm"&gt;<br>
+        &lt;/map&gt;
+      </code><br>
+      👉 <strong>Explication :</strong><br>
+      - <code>usemap</code> relie une image à une carte<br>
+      - <code>&lt;map&gt;</code> contient les zones<br>
+      - <code>&lt;area&gt;</code> définit chaque zone cliquable
+    </li>
+
+    <!-- 🔗 LIENS -->
+    <h3>🔗 Liens et navigation</h3>
+    <li><strong>&lt;a&gt;</strong> : Crée un lien hypertexte</li>
+
+    <!-- 🔢 LISTES -->
+    <h3>🔢 Listes</h3>
+    <li><strong>&lt;ul&gt;</strong> : Liste non ordonnée (avec puces)</li>
+    <li><strong>&lt;ol&gt;</strong> : Liste ordonnée (numérotée)</li>
+    <li><strong>&lt;li&gt;</strong> : Élément d’une liste</li>
+
+    <!-- 📝 FORMULAIRES -->
+    <h3>📝 Formulaires HTML</h3>
+    <li><strong>&lt;form&gt;</strong> : Regroupe les champs d’un formulaire<br>
+      <em>Exemple :</em><br>
+      <code>
+        &lt;form&gt;<br>
+          Nom : &lt;input type="text"&gt;&lt;br&gt;<br>
+          &lt;button&gt;Envoyer&lt;/button&gt;<br>
+        &lt;/form&gt;
+      </code>
+    </li>
+    <li><strong>&lt;input&gt;</strong> : Champ de saisie (texte, email…)</li>
+    <li><strong>&lt;button&gt;</strong> : Bouton (envoi ou action)</li>
+
+    <!-- ⚙️ ATTRIBUTS COURANTS -->
+    <h3>⚙️ Attributs HTML utiles</h3>
+    <li><strong>href</strong> : URL cible d’un lien</li>
+    <li><strong>target="_blank"</strong> : Ouvre un lien dans un nouvel onglet</li>
+    <li><strong>src</strong> : Source d’une image</li>
+    <li><strong>alt</strong> : Texte alternatif d’une image</li>
+    <li><strong>onclick</strong> : Action JS déclenchée au clic</li>
+    <li><strong>alert()</strong> : Boîte d’alerte JavaScript</li>
+    <li><strong>width / height</strong> : Taille d’une image ou bloc</li>
+
+    <!-- 🎨 CSS EN LIGNE -->
+    <h3>🎨 CSS en ligne (style dans les balises HTML)</h3>
+    <li><strong>font-size</strong> : Taille du texte<br>
+      <code>&lt;h1 style="font-size:100px;"&gt;Titre géant&lt;/h1&gt;</code>
+    </li>
+    <li><strong>background-color</strong> : Couleur de fond<br>
+      <code>&lt;body style="background-color:powderblue;"&gt;</code>
+    </li>
+    <li><strong>font-family</strong> : Police d’écriture<br>
+      <code>&lt;p style="font-family:courier;"&gt;Texte en Courier&lt;/p&gt;</code>
+    </li>
+    <li><strong>text-align</strong> : Alignement du texte (gauche, centre, droite)<br>
+      <code>&lt;h1 style="text-align:center;"&gt;Titre centré&lt;/h1&gt;</code>
+    </li>
+    <li><strong>border</strong> : Bordure autour d’un élément<br>
+      <code>&lt;h1 style="border:2px solid violet;"&gt;Titre&lt;/h1&gt;</code>
+    </li>
+
+    <!-- 📋 TABLEAU HTML -->
+    <h3>📋 Tableau HTML</h3>
+    <li><strong>&lt;table&gt;</strong> : Crée un tableau HTML<br>
+      <em>Exemple :</em><br>
+      <code>
+        &lt;table border="1"&gt;<br>
+          &lt;thead&gt;<br>
+            &lt;tr&gt;<br>
+              &lt;th&gt;Nom&lt;/th&gt;<br>
+              &lt;th&gt;Âge&lt;/th&gt;<br>
+              &lt;th&gt;Ville&lt;/th&gt;<br>
+            &lt;/tr&gt;<br>
+          &lt;/thead&gt;<br>
+          &lt;tbody&gt;<br>
+            &lt;tr&gt;<br>
+              &lt;td&gt;Alice&lt;/td&gt;<br>
+              &lt;td&gt;25&lt;/td&gt;<br>
+              &lt;td&gt;Paris&lt;/td&gt;<br>
+            &lt;/tr&gt;<br>
+            &lt;tr&gt;<br>
+              &lt;td&gt;Bob&lt;/td&gt;<br>
+              &lt;td&gt;30&lt;/td&gt;<br>
+              &lt;td&gt;Lyon&lt;/td&gt;<br>
+            &lt;/tr&gt;<br>
+          &lt;/tbody&gt;<br>
+        &lt;/table&gt;
+      </code>
+    </li>
+
+    <!-- 💡 AUTRES BALISES UTILES -->
+    <h3>💡 Autres balises utiles</h3>
+    <li><strong>&lt;b&gt;</strong> : Texte en gras (sans valeur sémantique)</li>
+    <li><strong>&lt;i&gt;</strong> : Texte en italique</li>
+    <li><strong>&lt;sub&gt;</strong> : Texte en indice (ex : H<sub>2</sub>O)</li>
+    <li><strong>&lt;style&gt;</strong> : Bloc CSS interne dans la balise &lt;head&gt;<br>
+      <code>
+        &lt;style&gt;<br>
+        body { background-color: powderblue; }<br>
+        h1 { color: blue; }<br>
+        p { color: red; }<br>
+        &lt;/style&gt;
+      </code>
+    </li>
+
+    <!-- 🔣 ENTITÉS SPÉCIALES -->
+    <h3>🔣 Entités HTML spéciales</h3>
+    <li><strong>&amp;lt; / &amp;gt;</strong> : Pour écrire les symboles < et ></li>
+
+  </ul>
+</div>
+
+ <hr>
+
+<!-- CSS : COURS COMPLET -->
+<img src="imagecss.jpg" alt="Diagramme de syntaxe CSS" width="45%" height="20%"/>
+<h1>🧠 Cours CSS - Niveau Débutant</h1>
+
+<div>
+  <h2>1. Qu'est-ce que CSS ?</h2>
+  <p>Le <strong>CSS</strong> permet de styliser les pages HTML : couleurs, marges, polices, animations, etc. Il sépare le contenu (HTML) de la présentation (CSS).</p>
+
+  <h3>🖍️ Syntaxe de base</h3>
+  <pre>
+sélecteur {
+  propriété: valeur;
+}</pre>
+  <p><strong>Exemple :</strong></p>
+  <pre>
+h1 {
+  color: red;
+  text-align: center;
+}</pre>
+
+  <h3>📌 Méthodes d'intégration CSS</h3>
+  <ul>
+    <li><strong>En ligne</strong> : directement dans la balise HTML →<br>
+      <code>&lt;p style="color:red;"&gt;Texte rouge&lt;/p&gt;</code></li>
+    <li><strong>Interne</strong> : à l'intérieur d'une balise <code>&lt;style&gt;</code> dans le <code>&lt;head&gt;</code> →<br>
+      <pre>
+&lt;style&gt;
+  p {
+    color: blue;
+  }
+&lt;/style&gt;</pre></li>
+    <li><strong>Externe</strong> : via un fichier CSS séparé →<br>
+      <code>&lt;link rel="stylesheet" href="style.css"&gt;</code> on écrit cette ligne dans le code <em> <span style="color:rgb(15, 118, 72)">HTML</span></em> pour faaire la liaison entre code html et le code <em> <span style="color:rgb(15, 118, 72)">CSS</span></em></li>
+
+      <h4>🏋️ Tableau récapitulatif</h4>
+  <table>
+    <thead>
+      <tr><th>Méthode</th><th>Avantages</th><th>Inconvénients</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>En ligne</td><td>Rapide à tester</td><td>Difficile à maintenir</td></tr>
+      <tr><td>Interne</td><td>Tout en un seul fichier</td><td>Pas réutilisable sur d'autres pages</td></tr>
+      <tr><td>Externe</td><td>Centralisation des styles</td><td>Fichier CSS externe requis</td></tr>
+    </tbody>
+  </table>
+</ul>
+   <pre>
+  <h3>🌟 Design</h3>
+  <p>On peut utiliser une image comme fond de page avec la propriété <code>background-image</code>. Attention : si l'image est trop chargée ou claire, le texte peut être difficile à lire.</p>
+    <h3>🌳 Image de fond (background-image)</h3>
+  <ul>
+    <li><strong>background-image</strong> : ajoute une image de fond</li>
+    <li><strong>background-repeat</strong> : répétition de l'image (ex : no-repeat)</li>
+    <li><strong>background-position</strong> : position de l'image dans la page (ex : right top)</li>
+    <li><strong>background-attachment</strong> : fixe ou non l'image pendant le scroll (ex : fixed)</li>
+    <li><strong>margin-right</strong> : permet d'éviter que le texte se superpose à l'image</li>
+    <li><em>⚠️ Attention</em> : si l'image est trop chargée ou trop foncée, cela peut rendre le texte difficile à lire.</li>
+  </ul>
+ 
+&lt;style&gt;
+  body {
+    background-image: url("img_tree.png"); /* Définit une image de fond pour le body (ici "img_tree.png") */
+    background-repeat: no-repeat;         /* L'image ne se répète pas (ni horizontalement ni verticalement) */
+    background-position: right top;       /* Positionne l’image en haut à droite de la page */
+    margin-right: 200px;                  /* Ajoute une marge de 200px à droite pour éviter que le texte recouvre l’image */
+    background-attachment: fixed;         /* L’image de fond reste fixe pendant le défilement de la page */
+  }
+&lt;/style&gt;
+  </pre>
+  <pre>
+  <h3>📏 Bordures en CSS (border-style)</h3>
+  <ul>
+    <li><strong>border-style: dotted;</strong> ➔ Bordure en pointillés</li>
+    <li><strong>border-style: dashed;</strong> ➔ Bordure en tirets</li>
+    <li><strong>border-style: solid;</strong> ➔ Bordure pleine</li>
+    <li><strong>border-style: double;</strong> ➔ Double bordure</li>
+    <li><strong>border-style: groove;</strong> ➔ Bordure en relief (creusée)</li>
+    <li><strong>border-style: ridge;</strong> ➔ Bordure en relief (en bosse)</li>
+    <li><strong>border-style: inset;</strong> ➔ Bordure enfoncée</li>
+    <li><strong>border-style: outset;</strong> ➔ Bordure ressortie</li>
+    <li><strong>border-style: none;</strong> ➔ Aucune bordure</li>
+    <li><strong>border-style: hidden;</strong> ➔ Bordure masquée (rarement utilisée)</li>
+    <li><strong>border-style: dotted dashed solid double;</strong> ➔ Bordures mixtes (haut, droite, bas, gauche)</li>
+  </ul>
+  </pre>
+  <p><strong>Remarque :</strong> L'image est fixée et ne défile pas avec le texte. Essayez de faire défiler la page pour voir l'effet.</p>
+
+  <h3>🛠️ Types de sélecteurs</h3>
+  <ul>
+    <li><strong>Balise</strong> : <code>p { color: blue; }</code></li>
+    <li><strong>Classe</strong> : <code>.important { font-weight: bold; }</code></li>
+    <li><strong>ID</strong> : <code>#titre { text-align: center; }</code></li>
+    <li><strong>Combiné</strong> : <code>div p { color: green; }</code></li>
+  </ul>
+
+  <h3>🔎 Principaux sélecteurs CSS</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>🎯 Sélecteur</th>
+        <th>✅ Exemple</th>
+        <th>🗘️ Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>#id</code></td><td><code>#firstname</code></td><td>Sélectionne l’élément avec id="firstname"</td></tr>
+      <tr><td><code>.class</code></td><td><code>.intro</code></td><td>Sélectionne tous les éléments avec class="intro"</td></tr>
+      <tr><td><code>*</code></td><td><code>*</code></td><td>Sélectionne tous les éléments</td></tr>
+      <tr><td><code>element</code></td><td><code>p</code></td><td>Sélectionne tous les &lt;p&gt;</td></tr>
+      <tr><td><code>element1, element2</code></td><td><code>div, p</code></td><td>Sélectionne les &lt;div&gt; et &lt;p&gt;</td></tr>
+    </tbody>
+  </table>
+
+  <h3>🧹 Propriétés CSS courantes</h3>
+  <ul>
+    <li><strong>color</strong> : couleur du texte → <code>color: red;</code></li>
+    <li><strong>background-color</strong> : fond → <code>background-color: yellow;</code></li>
+    <li><strong>font-size</strong> : taille texte → <code>font-size: 18px;</code></li>
+    <li><strong>font-family</strong> : police → <code>font-family: Arial;</code></li>
+    <li><strong>text-align</strong> : alignement → <code>text-align: center;</code></li>
+    <li><strong>margin</strong> : marge extérieure</li>
+    <li><strong>padding</strong> : marge intérieure</li>
+    <li><strong>border</strong> : bordure</li>
+  </ul>
+ 
+      <h3>🧰 Flexbox (Flexible Box Layout)</h3>
+    <p>Flexbox est un système moderne de mise en page qui permet d’aligner et de répartir facilement des éléments, même lorsqu’ils ont des tailles différentes.</p>
+    <p>Il est très utile pour créer des grilles, centrer des blocs, ou adapter une disposition selon la taille de l’écran.</p>
+
+    <h4>✨ Exemple :</h4>
+    <pre>
+.container {
+  display: flex; /* Active Flexbox */
+  justify-content: space-around; /* Espace égal entre les éléments */
+  align-items: center; /* Aligne les éléments verticalement */
+}
+
+
+  <h3>🖼️ Exemple de style complet</h3>
+  <pre>
+&lt;style&gt;
+  body {
+    background-color: #f0f0f0;
+    font-family: Arial;
+  }
+  h1 {
+    color: #ff6600;
+    text-align: center;
+    border-bottom: 2px solid gray;
+  }
+  p {
+    font-size: 18px;
+    padding: 10px;
+    color: #333;
+  }
+&lt;/style&gt;</pre>
+</div>
+
+
+<hr>
+
+<!-- JAVASCRIPT : COURS COMPLET -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cours JavaScript - Débutant</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height:1.6; margin:20px; }
+    h1,h2,h3 { color:#333; }
+    pre { background:#f4f4f4; padding:10px; overflow-x:auto; }
+    .box { background:#f9f9f9; padding:15px; border-left:5px solid #2196F3; margin:20px 0; }
+    table { border-collapse:collapse; margin:10px 0; }
+    th, td { border:1px solid #ccc; padding:6px; text-align:left; }
+    button { margin:3px; }
+  </style>
+</head>
+<body>
+  <img src="https://www.felix-its.com/wp-content/uploads/2024/03/use-of-java-script.jpg" alt="utilité de java script" width="780" height="250">
+  <h1>🧠 Cours JavaScript – Niveau Débutant</h1>
+
+  <h2>1. Qu’est-ce que JavaScript ?</h2>
+  <p><strong>JavaScript</strong> est un langage qui rend les pages web dynamiques et interactives : réagir aux clics, gérer des formulaires, modifier le contenu…</p>
+
+  <h3>🖱️ Exemple basique</h3>
+  <button onclick="alert('🎉 Tu as activé du JavaScript !')">Clique ici</button>
+
+  <h2>2. Le DOM et les événements</h2>
+  <p>On peut manipuler des éléments HTML via JavaScript :</p>
+  <button onclick="changeTexte()">Changer le texte 📄</button>
+  <p id="domtexte">Texte initial</p>
+  <script>
+    function changeTexte() {
+      document.getElementById('domtexte').innerText = 'Nouveau texte changé via JS !';
+    }
+  </script>
+  <pre>
+document.getElementById('id').innerText = 'Texte';
+  </pre>
+
+  <h2>3. Les variables : let, const et var</h2>
+  <ul>
+    <li><code>let</code> : variable réaffectable avec portée de bloc</li>
+    <li><code>const</code> : constante, valeur fixe</li>
+    <li><code>var</code> : ancien, portée fonction, à éviter</li>
+  </ul>
+
+  <div class="box">
+    <h3>💡 let VS var</h3>
+    <p><strong>Portée :</strong> <code>var</code> est visible dans toute la fonction, <code>let</code> seulement dans le bloc courant.</p>
+    <pre><code>
+// var (visible partout dans la fonction)
+function testVar() {
+  if (true) { var x = 10; }
+  console.log(x); // ✅ 10
+}
+// let (visible seulement dans le bloc)
+function testLet() {
+  if (true) { let y = 20; }
+  console.log(y); // ❌ Erreur ! y introuvable
+}</code></pre>
+    <p><strong>Redéclaration :</strong> <code>var</code> autorise deux fois le même nom, <code>let</code> non : <code>let a = 1;</code> puis <code>let a = 2;</code> provoque une erreur.</p>
+    <table>
+      <tr><th>Caractéristique</th><th>var</th><th>let</th></tr>
+      <tr><td>Portée</td><td>Fonctionnelle</td><td>Bloc</td></tr>
+      <tr><td>Redéclaration</td><td>✅ Oui</td><td>❌ Non</td></tr>
+      <tr><td>Hoisting</td><td>✅ Oui</td><td>⚠️ Oui mais non utilisable avant</td></tr>
+      <tr><td>Recommandé</td><td>❌ Ancien JS</td><td>✅ ES6+</td></tr>
+    </table>
+    <p><strong>Conclusion :</strong> Préfère <code>let</code> et <code>const</code>, oublie <code>var</code>.</p>
+  </div>
+
+ <h2>4. Manipulation de chaînes de caractères</h2>
+
+<input type="text" id="texte" placeholder="Écris un texte">
+<p id="outTexte"></p>
+
+<button onclick="afficherSubstring()">Extraire</button>
+<button onclick="mettreEnMajuscules()">Majuscules</button>
+<button onclick="mettreEnMinuscules()">Minuscules</button>
+<button onclick="remplacerTexte()">Remplacer</button>
+<button onclick="inverserTexte()">Inverser</button>
+
+<script>
+  function afficherSubstring() {
+    const texte = document.getElementById("texte").value;
+    document.getElementById("outTexte").innerText = texte.substring(0, 5);
+  }
+
+  function mettreEnMajuscules() {
+    const texte = document.getElementById("texte").value;
+    document.getElementById("outTexte").innerText = texte.toUpperCase();
+  }
+
+  function mettreEnMinuscules() {
+    const texte = document.getElementById("texte").value;
+    document.getElementById("outTexte").innerText = texte.toLowerCase();
+  }
+
+  function remplacerTexte() {
+    const texte = document.getElementById("texte").value;
+    document.getElementById("outTexte").innerText = texte.replace("bonjour", "salut");
+  }
+
+  function inverserTexte() {
+    const texte = document.getElementById("texte").value;
+    document.getElementById("outTexte").innerText = texte.split("").reverse().join("");
+  }
+</script>
+
+<pre>
+// substring(0, n) : extrait les premiers caractères
+// toUpperCase() : MAJUSCULES
+// toLowerCase() : minuscules
+// replace("ancien", "nouveau") : remplace un mot
+// split("") + reverse() + join("") : inverse la chaîne
+</pre>
+
+// substring, toUpperCase, toLowerCase, replace, split+reverse+join
+  </pre>
+
+  <h2>5. console.log vs affichage dans la page</h2>
+  <p><code>console.log()</code> est pour le développeur. Pour l'affichage utilisateur, on utilise le DOM :</p>
+  <button onclick="transformer()">Transformer</button>
+  <h3 id="titre">page html</h3>
+  <p id="result"></p>
+  <script>
+    function transformer() {
+      const msg = document.getElementById('titre').innerText;
+      const maj = msg.toUpperCase();
+      const remp = maj.replace('O','Y');
+      const inv = remp.split('').reverse().join('');
+      console.log('Original:', msg);
+      console.log('Majuscule:', maj);
+      console.log('Remplacement:', remp);
+      console.log('Inversion:', inv);
+      document.getElementById('result').innerText = `${maj} — ${remp} — ${inv}`;
+    }
+  </script>
+  <pre>
+// compare console.log(...) et l'affichage via innerText
+// template literal `${}` injecte les variables dans la chaîne
+  </pre>
+
+  <h2>6. Manipulation des nombres (Math)</h2>
+  <button onclick="showMin()">Afficher le min</button>
+  <p id="resMin"></p>
+  <script>
+    function showMin() {
+      const min = Math.min(10,20,30,2,40);
+      console.log('Min =', min);
+      document.getElementById('resMin').innerText = `Min = ${min}`;
+    }
+  </script>
+  <pre>
+// Math.min, max, floor, ceil, round, random, toString
+  </pre>
+
+  <<h2>7. 🧠 Méthodes utiles selon le type de données</h2>
+
+<h3>📜 String (chaîne de caractères)</h3>
+<p>Les chaînes de caractères sont des textes. Voici les méthodes les plus utilisées :</p>
+<ul>
+  <li><code>str.length</code> : retourne le <strong>nombre de caractères</strong> de la chaîne.</li>
+  <li><code>str.trim()</code> : enlève les <strong>espaces en début et en fin</strong> de chaîne.</li>
+  <li><code>str.toUpperCase()</code> : transforme tout le texte en <strong>MAJUSCULES</strong>.</li>
+  <li><code>str.toLowerCase()</code> : transforme tout en <strong>minuscules</strong>.</li>
+  <li><code>str.includes("mot")</code> : vérifie si un mot est présent dans la chaîne → <code>true</code> ou <code>false</code>.</li>
+  <li><code>str.replace("ancien", "nouveau")</code> : remplace un mot par un autre.</li>
+  <li><code>str.split("")</code> : coupe la chaîne en <strong>tableau de caractères</strong>.</li>
+</ul>
+
+<pre>
+const message = "  JavaScript est génial  ";
+console.log(message.length);           // 27 (espaces inclus)
+console.log(message.trim());           // "JavaScript est génial"
+console.log(message.toUpperCase());    // "  JAVASCRIPT EST GÉNIAL  "
+console.log(message.includes("génial")); // true
+</pre>
+
+---
+
+<h3>🔢 Number (nombres)</h3>
+<p>Voici les fonctions les plus utilisées pour manipuler les nombres :</p>
+<ul>
+  <li><code>n.toString()</code> : convertit un nombre en <strong>chaîne de caractères</strong>.</li>
+  <li><code>parseInt(str)</code> : convertit une chaîne en <strong>nombre entier</strong>.</li>
+  <li><code>parseFloat(str)</code> : convertit une chaîne en <strong>nombre décimal</strong>.</li>
+  <li><code>Math.round(n)</code> : arrondit à l’entier le plus proche.</li>
+  <li><code>Math.floor(n)</code> : arrondit <strong>vers le bas</strong>.</li>
+  <li><code>Math.ceil(n)</code> : arrondit <strong>vers le haut</strong>.</li>
+  <li><code>Math.random()</code> : retourne un <strong>nombre aléatoire entre 0 et 1</strong>.</li>
+</ul>
+
+<pre>
+let x = 7.85;
+console.log(x.toString());       // "7.85"
+console.log(parseInt("42px"));   // 42
+console.log(parseFloat("3.14")); // 3.14
+console.log(Math.round(x));      // 8
+console.log(Math.floor(x));      // 7
+console.log(Math.ceil(x));       // 8
+console.log(Math.random());      // ex: 0.457...
+</pre>
+
+---
+
+<h3>✅ Boolean (valeurs vraies ou fausses)</h3>
+<p>Les booléens représentent la vérité (true ou false). Voici des méthodes utiles :</p>
+<ul>
+  <li><code>Boolean(val)</code> : convertit une valeur en booléen (ex : <code>0</code> → <code>false</code>, <code>"abc"</code> → <code>true</code>).</li>
+  <li><code>!!val</code> : double négation, raccourci pour convertir en booléen.</li>
+  <li><code>typeof val</code> : donne le <strong>type</strong> de la variable (utile pour le débogage).</li>
+</ul>
+
+<pre>
+console.log(Boolean(0));          // false (0 est considéré vide)
+console.log(Boolean("salut"));    // true (non vide)
+console.log(!!undefined);         // false
+console.log(typeof true);         // "boolean"
+console.log(typeof 42);           // "number"
+console.log(typeof "abc");        // "string"
+</pre>
+
+<section>
+  <h2>8. 🔧 Fonctions en JavaScript</h2>
+
+  <article>
+    <h3>Définition</h3>
+    <p>Une fonction est un bloc de code réutilisable, qui effectue une tâche précise. Elle peut prendre des <strong>paramètres</strong> et retourner une <strong>valeur</strong>.</p>
+  </article>
+
+  <article>
+    <h3>Synthaxe de base</h3>
+    <pre>
+function nomDeLaFonction(param1, param2) {
+  // instructions
+  return resultat; // facultatif
+}
+    </pre>
+  </article>
+
+  <article>
+    <h3>Exemple simple</h3>
+    <pre>
+function addition(a, b) {
+  return a + b;
+}
+
+console.log(addition(3, 5)); // affiche 8
+    </pre>
+    <p>Ici, <code>addition</code> est une fonction qui prend deux paramètres <code>a</code> et <code>b</code>, et retourne leur somme.</p>
+  </article>
+
+  <article>
+    <h3>Fonction sans paramètre et sans retour</h3>
+    <pre>
+function direBonjour() {
+  console.log("Bonjour !");
+}
+
+direBonjour(); // affiche "Bonjour !"
+    </pre>
+  </article>
+</section>
+
+
+<article>
+  <h3>🔍 Exemple plus avancé : Tester un palindrome</h3>
+  <pre>
+// <span style="color: green">Fonction qui vérifie si une chaîne est un palindrome</span>
+function isPalindrome(str) {
+  // <span style="color: green">Nettoyage : on supprime tout sauf lettres et chiffres</span>
+  // <span style="color: green">/[^a-zA-Z0-9]/g : expression régulière</span>
+  // <span style="color: green">^ : négation → on exclut ce qui est entre [ ]</span>
+  // <span style="color: green">a-zA-Z0-9 : garde lettres et chiffres uniquement</span>
+  // <span style="color: green">g : global → appliqué à toute la chaîne</span>
+  var cleaned = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+
+  // <span style="color: green">Inversion de la chaîne nettoyée</span>
+  var reversed = cleaned.split("").reverse().join("");
+
+  // <span style="color: green">Comparaison de la chaîne nettoyée avec sa version inversée</span>
+  return cleaned === reversed;
+}
+
+// <span style="color: green">Exemple avec une célèbre phrase palindrome</span>
+var input = "A man, a plan, a canal: Panama";
+
+// <span style="color: green">Affichage du résultat dans un élément HTML</span>
+document.getElementById("demo").innerHTML =
+  isPalindrome(input) ? "C'est un palindrome." : "Ce n'est pas un palindrome.";
+  </pre>
+
+  <p>Ce code définit une fonction qui supprime les caractères non alphanumériques, met tout en minuscules, puis compare la chaîne avec sa version inversée.  
+  Grâce à l'expression régulière <code>/[^a-zA-Z0-9]/g</code>, seuls les lettres et chiffres sont conservés.</p>
+</article>
+
+
+<section>
+  <h2>9. 🧱 Les structures de données : Objets en JavaScript</h2>
+
+  <article>
+    <h3>Définition</h3>
+    <p>
+      En JavaScript, les <strong>objets</strong> sont des structures de données permettant de regrouper plusieurs informations
+      sous une seule variable.  
+      C’est l’équivalent d’une <code>struct</code> en langage C ou d’un <code>dict</code> en Python.
+    </p>
+  </article>
+
+  <article>
+  <h3>📦 Exemple : Utiliser une structure (objet)</h3>
+  <pre>
+&lt;script&gt;
+// Déclaration d’un objet représentant une personne
+const person = {
+  firstname: "John",
+  lastname: "Doe",
+  age: 50,
+  eyecolor: "blue"
+};
+
+// Affichage d’une phrase en utilisant les propriétés de l’objet
+document.getElementById("demo").innerHTML =
+  person.firstname + " is " + person.age + " years old.";
+&lt;/script&gt;
+  </pre>
+
+  <p><strong>Remarque :</strong> en JavaScript, un objet comme <code>person</code> est une vraie <strong>structure de données</strong> :
+    <ul>
+      <li>Il regroupe plusieurs informations liées entre elles (nom, âge, etc.)</li>
+      <li>Chaque donnée est une <strong>clé : valeur</strong> (ex : <code>firstname: "John"</code>)</li>
+      <li>C’est l’équivalent d’une <code>struct</code> en langage C ou d’un <code>dict</code> en Python</li>
+      <li>On accède aux valeurs avec la notation <code>objet.propriété</code> (ex : <code>person.age</code>)</li>
+    </ul>
+  </p>
+</article>
+
+</section>
+
+
+<section>
+  <h2>10. 📚 Tableaux (Arrays) en JavaScript</h2>
+
+  <article>
+    <h3>🔎 Définition</h3>
+    <p>
+      Un <strong>tableau</strong> (array) est une structure qui permet de stocker plusieurs valeurs dans une seule variable.  
+      Chaque élément a une position (appelée <em>indice</em>), qui commence à 0.
+    </p>
+    <pre>
+let fruits = ["Pomme", "Banane", "Orange"];
+console.log(fruits[0]); // "Pomme"
+console.log(fruits.length); // 3
+    </pre>
+  </article>
+
+  <article>
+    <h3>🛠️ Fonctions utiles pour manipuler un tableau</h3>
+    <ul>
+      <li><code>array.length</code> : retourne la <strong>taille</strong> du tableau.</li>
+      <li><code>array.push(element)</code> : <strong>ajoute</strong> un élément à la fin.</li>
+      <li><code>array.pop()</code> : <strong>supprime</strong> le dernier élément.</li>
+      <li><code>array.shift()</code> : supprime le <strong>premier</strong> élément.</li>
+      <li><code>array.unshift(element)</code> : ajoute un élément au <strong>début</strong>.</li>
+      <li><code>array.indexOf(valeur)</code> : retourne l’<strong>indice</strong> de la valeur, ou -1 si non trouvée.</li>
+      <li><code>array.includes(valeur)</code> : retourne <code>true</code> si la valeur est présente.</li>
+      <li><code>array.join(", ")</code> : transforme le tableau en <strong>chaîne de caractères</strong>.</li>
+      <li><code>array.reverse()</code> : <strong>inverse</strong> l’ordre du tableau.</li>
+      <li><code>array.sort()</code> : <strong>trie</strong> les éléments (alphabétique ou numérique).</li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>💡 Exemple complet</h3>
+    <pre>
+let nombres = [5, 3, 9, 1];
+
+nombres.push(7);            // ajoute 7 → [5, 3, 9, 1, 7]
+nombres.sort();             // trie → [1, 3, 5, 7, 9]
+nombres.reverse();          // inverse → [9, 7, 5, 3, 1]
+nombres.pop();              // supprime 1 → [9, 7, 5, 3]
+
+console.log(nombres);       // affiche [9, 7, 5, 3]
+console.log(nombres.includes(5));  // true
+console.log(nombres.indexOf(7));   // 1
+    </pre>
+  </article>
+</section>
+
+
+<section>
+  <h2>11. 🔁 Boucles (Loops) en JavaScript</h2>
+
+  <article>
+    <h3>Définition</h3>
+    <p>
+      Une boucle permet de <strong>répéter automatiquement un bloc de code</strong>, tant qu'une condition est vraie.  
+      Cela évite de réécrire plusieurs fois les mêmes instructions.
+    </p>
+  </article>
+
+  <article>
+    <h3>📌 Boucle <code>for</code></h3>
+    <p>Utilisée quand on sait combien de fois on veut répéter une tâche :</p>
+    <pre>
+for (let i = 0; i &lt; 5; i++) {
+  console.log("i =", i);  <span class="commentaire">// Affiche les nombres de 0 à 4</span>
+}
+    </pre>
+  </article>
+
+  <article>
+    <h3>📌 Boucle <code>while</code></h3>
+    <p>Répète une instruction <strong>tant qu'une condition est vraie</strong> :</p>
+    <pre>
+let i = 0;
+while (i &lt; 3) {
+  console.log(i);  <span class="commentaire">// Affiche 0, 1, 2</span>
+  i++;
+}
+    </pre>
+  </article>
+
+  <article>
+    <h3>📌 Boucle <code>do...while</code></h3>
+    <p>Exécute le code au moins une fois, puis vérifie la condition :</p>
+    <pre>
+let i = 0;
+do {
+  console.log(i);  <span class="commentaire">// Affiche 0, 1, 2</span>
+  i++;
+} while (i &lt; 3);
+    </pre>
+  </article>
+
+  <article>
+    <h3>📌 Boucle <code>for...of</code> (tableaux)</h3>
+    <p>Parcourt les éléments d’un tableau ou d’une chaîne :</p>
+    <pre>
+let fruits = ["🍎", "🍌", "🍊"];
+for (let fruit of fruits) {
+  console.log(fruit);  <span class="commentaire">// Affiche chaque fruit</span>
+}
+    </pre>
+  </article>
+
+  <article>
+    <h3>📌 Boucle <code>for...in</code> (objets)</h3>
+    <p>Parcourt les propriétés d’un objet :</p>
+    <pre>
+let personne = { nom: "Alice", age: 25 };
+for (let cle in personne) {
+  console.log(cle + " → " + personne[cle]);  <span class="commentaire">// Affiche nom → Alice, age → 25</span>
+}
+    </pre>
+  </article>
+
+  <article>
+    <h3>💡 Exemple complet : moyenne d’un tableau</h3>
+    <pre>
+let notes = [15, 12, 17, 9];
+let total = 0;
+
+for (let note of notes) {
+  total += note;  <span class="commentaire">// Additionne toutes les notes</span>
+}
+
+let moyenne = total / notes.length;
+console.log("Moyenne =", moyenne);  <span class="commentaire">// Affiche : Moyenne = 13.25</span>
+    </pre>
+  </article>
+</section>
+
+
+
+<section>
+  <h2>12. 🌳 Le DOM (Document Object Model)</h2>
+
+  <article>
+    <h3>Définition</h3>
+    <p>
+      Le <strong>DOM</strong> (Document Object Model) est une représentation sous forme d'<strong>arbre d’objets</strong> de la page HTML.
+      JavaScript peut utiliser le DOM pour <strong>lire, modifier, ajouter ou supprimer</strong> des éléments HTML dynamiquement.
+    </p>
+    <p>
+      Exemple : le DOM transforme cette page HTML en structure navigable :
+    </p>
+    <pre>
+html
+ └── body
+      └── p (id="demo")
+    </pre>
+  </article>
+
+  <article>
+    <h3>🔧 Fonctions DOM utiles</h3>
+    <ul>
+      <li><code>document.getElementById("id")</code> : sélectionne un élément par son identifiant</li>
+      <li><code>element.innerHTML = "..."</code> : modifie le contenu HTML</li>
+      <li><code>element.style.color = "..."</code> : change le style CSS</li>
+      <li><code>document.createElement("tag")</code> : crée un nouvel élément HTML</li>
+      <li><code>element.appendChild(objet)</code> : ajoute un élément dans un autre</li>
+      <li><code>element.remove()</code> : supprime un élément</li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>💡 Exemple : changer le contenu d’un paragraphe</h3>
+    <pre>
+&lt;p id="demo"&gt;Bonjour&lt;/p&gt;
+&lt;button onclick="changerTexte()"&gt;Changer&lt;/button&gt;
+
+&lt;script&gt;
+function changerTexte() {
+  document.getElementById("demo").innerHTML = "Texte mis à jour";
+}
+&lt;/script&gt;
+    </pre>
+    <p>
+      👉 Quand l'utilisateur clique sur le bouton, JavaScript accède à l'élément via le DOM et modifie son contenu.
+    </p>
+  </article>
+</section>
+
+
+
+
+</div>
+
+
+
+
+  <hr>
+  <div>
+    <p>
+      <a href="https://www.youtube.com/watch?v=veZgDK6LFaA&list=PLYyqC4bNbCIfMY5CoGmiWaPi9l86qaz5B&index=4&ab_channel=%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%D8%AA%D8%B1%D9%85%D9%8A%D8%B2" target="_blank">
+        ▶️ Cliquez ici pour plus de détails sur YouTube
+      </a>
+    </p>
+    <button onclick="alert('Bienvenue à ma page')">hello</button>
+  </div>
+
+<h2>▶️ Aller à la partie AJAX/API</h2>
+<a href="exercice2.html">
+  <button>📡 Découvrir les API et AJAX</button>
+</a>
+
+
+</body>
+</html>
